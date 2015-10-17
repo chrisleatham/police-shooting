@@ -1,36 +1,109 @@
-<!doctype html>
+<!DOCTYPE html>
 
 <html>
+
   <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Police Shootings</title>
 
-    <!-- jQuery, Bootstrap -->
-    <script src="https://code.jquery.com/jquery.min.js"></script>
-    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
-    
-    <!-- leaflet libraries -->
-    <script src="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js"></script>
-    <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css" />
+      <title>Police Shootings</title>
 
-    <!-- Custom files -->
-    <script type="text/javascript" src="js/map.js"></script>
-    <link rel="stylesheet" href="css/main.css"/>
+      <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+
+      <!-- Importing jQuery.js. -->
+      <script src="https://code.jquery.com/jquery.min.js"></script>
+
+      <!-- Importing bootstrap.css. -->
+      <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css"
+        rel="stylesheet" type="text/css" />
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js">
+        </script>
+      
+      <!-- Importing leaflet.js libraries. -->
+      <script src="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js"></script>
+      <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css" />
+
+      <!-- Importing police-shooting map.js and police-shooting main.css. -->
+      <script type="text/javascript" src="js/map.js"></script>
+      <link rel="stylesheet" href="css/main.css"/>
    
   </head>
+
   <body>
-    <!-- You may want to put your title and additional informaiton here -->
-    <div class="container">
-      <!-- This is the div that your map will go in.  You'll need to reference its id -->
-      <div id="container"></div>
+
+      <h1>
+        Police Shootings
+      </h1>
+
+      <div class="container">
+        <div id="container">  
+        </div>
+      </div>
+
+    <div id="info">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-md-6 mapinfo">
+              <h2>
+                Police Shootings
+              </h2>
+              <p>
+                This data is crowd-sourced by <a href="http://regressing.deadspin.com/deadspin-police-shooting-database-update-were-still-go-1627414202">Deadspin</a>.
+                Circle color indicates hit or killed. Click each point for details.
+              </p>
+            </div>
+          <div class="col-md-6">
+            <!-- The statisticTable is filled upon successful AJAX request of
+            response.json. -->
+            <table id="statisticTable">
+              <tr>
+                <td>
+                </td>
+                <td class="tblHeading">
+                  Hit
+                </td>
+                <td class="tblHeading">
+                  Killed
+                </td>
+              </tr>
+              <tr>
+                <td class="tblHeading">
+                  Male
+                </td>
+                <td id="hitMaleTotal">
+                </td>
+                <td id="killedMaleTotal">
+                </td>
+              </tr>
+              <tr>
+                <td class="tblHeading">
+                  Female
+                </td>
+                <td id="hitFemaleTotal">
+                </td>
+                <td id="killedFemaleTotal">
+                </td>
+              </tr>
+              <tr>
+                <td class="tblHeading">
+                  Unknown
+                </td>
+                <td id="hitUnknownTotal">
+                </td>
+                <td id="killedUnknownTotal">
+                </td>
+              </tr>
+            </table>
+          </div>
+        </div>
+      </div>
     </div>
-    <script>
-      
-      // This is where you should execute your drawMap function
-      
-    </script>
+
+      <script>
+        drawMap();
+        
+      </script>
+
   </body>
+
 </html>
