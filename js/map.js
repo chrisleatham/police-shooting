@@ -6,7 +6,7 @@ var killedFemale = 0;
 var hitUnknown = 0;
 var killedUnknown = 0;
 
-// Initializing map and its layers.
+// The Layers
 var map;
 var maleLayer = new L.LayerGroup([]);
 var femaleLayer = new L.LayerGroup([]);
@@ -17,15 +17,13 @@ var allLayers = {
     "Gender: Unknown": unknownGLayer
 }
 
-// drawMap draws the map, then calls getData.
-var drawMap = function() {
+// drawMap
 
-    //OSM map:
+var drawMap = function() {
 
     var map = L.map("container").setView([30, -100], 4);
     var layer = L.tileLayer("http://{s}.tile.osm.org/{z}/{x}/{y}.png");
     layer.addTo(map);
-
 
     tilesLayer.addTo(map);
     getData();
@@ -46,47 +44,46 @@ var getData = function() {
     });
 }
 
-// Loops through all the victims and updates the map according to their respective data and
-// location.
+// Loops through the data and plots points
 var customBuild = function(data) {
     for (var i = 0; i < data.length; i++) {
 
-        // Determines the location of the shooting.
+        // Location
         var lat = data[i]["lat"];
         var lng = data[i]["lng"];
 
-        // Determines victimName.
+        // Name
         var victimName = data[i]["Victim Name"];
         if (victimName == "undefined") {
             victimName = "Unknown";
         }
 
-        // Determines victimGender.
+        // Gender
         var victimGender = data[i]["Victim's Gender"];
         if (victimGender != "Male" && victimGender != "Female") {
             victimGender = "Unknown";
         }
 
-        // Determines victimRace.
+        // Race
         var victimRace = data[i]["Race"];
         if (victimRace == "undefined") {
             victimRace = "Unknown";
         }
 
-        // Determines victimSurvive.
+        // Result
         var victimSurvive = data[i]["Hit or Killed?"];
         if (victimSurvive == "undefined") {
             victimSurvive = "Unknown";
         }
 
-        // Determines summary and source.
+        // Description and link
         var victimSummary = data[i]["Summary"];
         if (victimSummary == "undefined") {
             victimSummary = "Summary unknown.";
         }
         var victimSource = data[i]["Source Link"];
 
-        // Updates statistics.
+        // Counts results
         if (victimGender == "Male") {
             if (data[i]["Hit or Killed?"] == "Hit") {
                 hitMale++;
@@ -107,15 +104,15 @@ var customBuild = function(data) {
             }
         }
 
-        // Information to be included in infoPopup.
+        // Popup
         var info = "<h3>" + victimName + "</h3>" + "<p>Survived?: " + victimSurvive + "</p><p>Gender: " + victimGender + "</p><p>Race: " + victimRace + "<p>Summary: " + victimSummary + "</p><p>Source: " + "<a href='" + victimSource + "'>" + victimSource + "</a></p>";
 
-        // Popup at incident site.
+        // Popup site.
         var infoPopup = new L.popup({
             maxHeight: 200
         }).setLatLng(lat, lng).setContent(info);
 
-        // Inserts circle at incident site, adds circle to genderLayer and binds to popup.
+        // Adds circle to map based on what happened at the site
         if (victimGender == "Male") {
             var circle = new L.circle([lat, lng], 10, {
                 color: blue,
@@ -137,13 +134,13 @@ var customBuild = function(data) {
         }
     }
 
-    // Displaying layers.
+    // addTo map stuff
     maleLayer.addTo(map);
     femaleLayer.addTo(map);
     unknownGLayer.addTo(map);
     L.control.layers(null, allLayers).addTo(map);
 
-    // Updating statistics of the table.
+    // Add to table
     $("#hitMaleTotal").text(hitMale);
     $("#killedMaleTotal").text(killedMale);
     $("#hitFemaleTotal").text(hitFemale);
