@@ -6,7 +6,7 @@
 // JavaScript for creating a map using MapBox, taking data from a JSON file, plotting points based on variables, adding up statistics, then sending them to the HTML Table. 
 
 
-// Initializing map and its layers.
+// Establishing layers
 var map;
 var unknownGLayer = new L.LayerGroup([]);
 var maleLayer = new L.LayerGroup([]);
@@ -17,6 +17,8 @@ var allLayers = {
     "Gender: Unknown": unknownGLayer
 }
 
+
+// Establishing variables
 var hitMale = 0;
 var killedMale = 0;
 var hitFemale = 0;

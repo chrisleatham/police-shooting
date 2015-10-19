@@ -44,18 +44,17 @@ h2 {
 
 /* Title characteristics */
 h1 {
-	font-family: "Roboto Slab", Helvetica;
 	font-size: 8em;
+	width: 100%;
 	padding: 1em;
 	text-align: center;
-	width: 100%;
 	margin-top: 0px;
 	color: #FFFFFF;
 }
 
 /* Map characteristics */
 #container {
- 	border-style: solid;
+ 	border-style: double;
  	border-color: #FFFFF0;
  	border-radius: 20px;
  	border-width: 10px;
@@ -81,4 +80,27 @@ td {
 
 .tblHeading {
 	font-weight: 1000;
+}
+
+/* When on phone screens */
+@media screen and (max-width: 767px) {
+	
+	body {
+		font-weight: 100;
+	}
+
+	h1 {
+		font-size: 3em;
+	}
+
+	/* Map on phone screens */
+	#container {
+		height: 500px;
+		width: 500px;
+		border-radius: 5px;
+		border width: 5px;
+	}
+
+
+	}
 }
