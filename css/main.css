@@ -1,47 +1,62 @@
-/* Importing fonts from Google. */
+/* 
+
+Chris Leatham
+Mike Freeman
+INFO 343 A
+
+CSS for index.html for police-shootings
+
+*/
+
+/* Font import */
 @import url(https://fonts.googleapis.com/css?family=Roboto+Slab:700);
 
-/* Body. */
-a {
-	color: #777777;
-}
-
-@media only screen and (min-width: 768px) {
-	body {
-		background-image: url(../img/background.jpg);
-		background-size: 100%, 100%;
-		background-repeat: no-repeat;
-	}
-}
-
-a:hover {
-	color: #444444;
-	text-decoration: none;
-}
-
+/* Default characteristics */
 
 body {
 	font-family: "Roboto Slab", Helvetica;
 	font-weight: 400;
+	background-color: #202020;
+}
+
+#mapinfo {
+	text-align: center;
+}
+
+a {
+	color: #A0A0A0;
+}
+
+a:hover {
+	color: #B22222;
+	text-decoration: none;
+}
+
+
+#description {
+	text-align: center;
+	color: white;
 }
 
 h2 {
 	font-weight: 700;
 }
 
-/* Headline. */
+/* Title characteristics */
 h1 {
 	font-family: "Roboto Slab", Helvetica;
-	font-size: 5em;
-	margin: 0px;
+	font-size: 8em;
 	padding: 1em;
 	text-align: center;
 	width: 100%;
+	margin-top: 0px;
+	color: #FFFFFF;
 }
 
-/* Map. */
+/* Map characteristics */
 #container {
  	border-style: solid;
+ 	border-color: #FFFFF0;
  	border-radius: 20px;
  	border-width: 10px;
 	height: 800px;
@@ -51,9 +66,12 @@ h1 {
 }
 
 
+/* Table characteristics */
 table {
+	color: white;
 	margin-left: auto;
 	margin-right: auto;
+	font-size: 50;
 }
 
 td {
@@ -62,5 +80,5 @@ td {
 }
 
 .tblHeading {
-	font-weight: 700;
+	font-weight: 1000;
 }

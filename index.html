@@ -1,3 +1,11 @@
+<!-- 
+Chris Leatham
+Mike Freeman
+INFO 343 A
+-->
+
+<!-- HTML for the Title, Table, and drawing the map from the JavaScript map.js -->
+
 <!DOCTYPE html>
 
 <html>
@@ -30,7 +38,7 @@
   </head>
 
   <body>
-
+      <!-- Title -->
       <h1>
         Police Shootings
       </h1>
@@ -43,22 +51,23 @@
     <div id="info">
       <div class="container-fluid">
         <div class="row">
-          <div class="col-md-6 mapinfo">
+        <!-- Description of the page -->
+          <div class="col-md-12" id="description">
               <h2>
                 Police Shootings
               </h2>
               <p>
                 This data is crowd-sourced by <a href="http://regressing.deadspin.com/deadspin-police-shooting-database-update-were-still-go-1627414202">Deadspin</a>.
-                Circle color indicates hit or killed. Click each point for details.
+                Circle color indicates male, female, or unknown. Click each point for details.
               </p>
             </div>
-          <div class="col-md-6">
-            <!-- The statisticTable is filled upon successful AJAX request of
-            response.json. -->
+          <!-- Table for the data -->
+          <div class="col-md-12">
             <table id="statisticTable">
               <tr>
                 <td>
                 </td>
+                <!-- Y axsis -->
                 <td class="tblHeading">
                   Hit
                 </td>
@@ -67,6 +76,7 @@
                 </td>
               </tr>
               <tr>
+              <!-- X axsis -->
                 <td class="tblHeading">
                   Male
                 </td>
@@ -98,7 +108,7 @@
         </div>
       </div>
     </div>
-
+    <!-- Where the map is drawn -->
       <script>
         drawMap();
         
